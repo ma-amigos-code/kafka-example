@@ -1,0 +1,1 @@
+- [Java file outside of source root intelliJ (ERROR)](https://stackoverflow.com/questions/63521181/java-file-outside-of-source-root-intellij)
