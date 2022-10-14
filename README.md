@@ -1,1 +1,2 @@
+- [Cannot convert from [java.lang.String] to...](https://stackoverflow.com/questions/66271759/cannot-convert-from-java-lang-string-to-com-example-demo-user)
 - [Java file outside of source root intelliJ (ERROR)](https://stackoverflow.com/questions/63521181/java-file-outside-of-source-root-intellij)

@@ -14,4 +14,10 @@ public class KafkaTopicConfig {
                 .build();
     }
 
+    @Bean
+    public NewTopic amigoscodeTopicMessage() {
+        return TopicBuilder.name("amigoscodeMessage")
+                .build();
+    }
+
 }

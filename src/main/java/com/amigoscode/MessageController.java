@@ -1,7 +1,6 @@
 package com.amigoscode;
 
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,16 +12,24 @@ import java.time.LocalDateTime;
 @RequestMapping("api/v1/messages")
 public class MessageController {
 
-    private KafkaTemplate<String, Message> kafkaTemplate;
+    //private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, Message> kafkaTemplateMessage;
 
-    public MessageController(KafkaTemplate<String, Message> kafkaTemplate) {
-        this.kafkaTemplate = kafkaTemplate;
+    public MessageController(/*KafkaTemplate<String, String> kafkaTemplate,*/
+                             KafkaTemplate<String, Message> kafkaTemplateMessage) {
+        //this.kafkaTemplate = kafkaTemplate;
+        this.kafkaTemplateMessage = kafkaTemplateMessage;
     }
 
-    @PostMapping
+    /*@PostMapping
     public void publish(@RequestBody MessageRequest request) {
+        kafkaTemplate.send("amigoscode", request.message());
+    }*/
+
+    @PostMapping
+    public void publishMessage(@RequestBody MessageRequest request) {
         Message message = new Message(request.message(), LocalDateTime.now());
-        kafkaTemplate.send("amigoscode", message);
+        kafkaTemplateMessage.send("amigoscodeMessage", message);
     }
 
 }
